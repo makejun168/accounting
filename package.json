@@ -1,0 +1,5 @@
+{
+  "dependencies": {
+    "egg-jwt": "^3.1.7"
+  }
+}

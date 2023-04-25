@@ -50,6 +50,12 @@ module.exports = appInfo => {
     agent: false,
   }
 
+  // secret 加密字符串，将在后续用于结合用户信息生成一串 token。secret 是放在服务端代码中，普通用户是无法通过浏览器发现的，所以千万不能将其泄漏，否则有可能会被不怀好意的人加以利用。
+
+  config.jwt = {
+    secret: 'PoloMa',
+  };
+
   // add your user config here
   const userConfig = {
     // myAppName: 'egg',
