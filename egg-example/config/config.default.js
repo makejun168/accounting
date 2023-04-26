@@ -24,7 +24,7 @@ module.exports = appInfo => {
       ignoreJSON: true
     },
     domainWhiteList: ['*']
-  }
+  };
 
   config.view = {
     mapping: {'.html': 'ejs'}  //左边写成.html后缀，会自动渲染.html文件
@@ -56,9 +56,23 @@ module.exports = appInfo => {
     secret: 'PoloMa',
   };
 
+  // egg 提供两种文件接收模式，1 是 file 直接读取，2 是 stream 流的方式。我们采用比较熟悉的 file 形式。
+  // 所以需要前往 config/config.default.js 配置好接收形式
+
+  config.multipart = {
+    mode: 'file'
+  };
+
+  config.cors = {
+    origin: '*', // 允许所有跨域访问
+    credentials: true, // 允许 Cookie 跨域跨域
+    allowMethods: 'GET,HEAD,PUT,POST,DELETE,PATCH'
+  };
+
   // add your user config here
   const userConfig = {
     // myAppName: 'egg',
+    uploadDir: 'app/public/upload'
   };
 
   return {
