@@ -4,7 +4,7 @@ import { Toast } from 'zarm'
 
 const MODE = import.meta.env.MODE // 环境变量
 
-axios.defaults.baseURL = MODE == 'development' ? '/api' : 'http://127.0.0.1'
+axios.defaults.baseURL = MODE == 'development' ? '/api' : 'http://127.0.0.1:7001'
 axios.defaults.withCredentials = true
 axios.defaults.headers['X-Requested-With'] = 'XMLHttpRequest'
 axios.defaults.headers['Authorization'] = `${localStorage.getItem('token') || null}`
@@ -15,11 +15,15 @@ axios.interceptors.response.use(res => {
         Toast.show('服务端异常！')
         return Promise.reject(res)
     }
-    if (res.data.code != 200) {
+    if (res.data.code !== 200) {
         if (res.data.msg) Toast.show(res.data.msg)
-        if (res.data.code == 401) {
+        if (res.data.code === 401) {
             window.location.href = '/login'
         }
+        return Promise.reject(res.data)
+    }
+    if (res.data.code === 500) {
+        if (res.data.msg) Toast.show(res.data.msg)
         return Promise.reject(res.data)
     }
 

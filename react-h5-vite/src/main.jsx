@@ -1,14 +1,15 @@
-import React, {StrictMode} from 'react'
+import React from 'react'
 import ReactDOM from 'react-dom'
-import { createRoot } from 'react-dom/client'
+import {
+    BrowserRouter as Router
+} from "react-router-dom";
 import 'lib-flexible/flexible'
 import './index.css'
 import App from './App'
-const container = document.getElementById('root');
-const root = createRoot(container); // createRoot(container!) if you use TypeScript
 
-root.render(
-    <StrictMode>
+ReactDOM.render(
+    <React.StrictMode>
         <App />
-    </StrictMode>
-);
+    </React.StrictMode>,
+    document.getElementById('root')
+)

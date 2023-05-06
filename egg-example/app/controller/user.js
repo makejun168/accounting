@@ -59,7 +59,7 @@ class UserController extends Controller {
         const { username, password } = ctx.request.body;
 
         // 根据用户名，在数据库中查找相对应的 id 操作
-        const userInfo = await ctx.service.user.getUserByName(username)
+        const userInfo = await ctx.service.user.getUserByName(username);
 
         // 没有找到当前用户
         if(!userInfo || !userInfo.id) {
@@ -71,7 +71,7 @@ class UserController extends Controller {
             return
         }
 
-        if(!userInfo && password !== userInfo.password) {
+        if(userInfo && password !== userInfo.password) {
             ctx.body = {
                 code: 500,
                 msg: '账号密码错误',
