@@ -8,7 +8,6 @@ import PopupType from '@/components/PopupType'
 import PopupAddBill from '@/components/PopupAddBill'
 import CustomIcon from '@/components/CustomIcon'
 
-
 import s from '../../style/style.module.less'
 
 const Home = () => {

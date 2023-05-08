@@ -1,19 +1,4 @@
-
-
-.index {
-  width: 200px;
-  height: 200px;
-  background: green;
-  span {
-    color: red;
-  }
-}
-
-.tab {
-  border-top: 1px solid #e9e9e9;
-}
-
-
+// Login
 
 .auth {
   min-height: 100vh;
@@ -68,7 +53,7 @@
   }
 }
 
-
+// home
 .home {
   height: 100%;
   display: flex;
@@ -152,6 +137,8 @@
   }
 }
 
+
+
 .item {
   border-radius: 10px;
   overflow: hidden;
@@ -202,7 +189,7 @@
 }
 
 /**
-popup-type
+ popup-type
  */
 .popup-type {
   height: 500px;
@@ -265,7 +252,7 @@ popup-type
   }
 }
 
-
+// popup data
 .add-wrap {
   padding-top: 12px;
   background-color: #fff;
@@ -401,7 +388,7 @@ popup-type
   }
 }
 
-
+// header
 .header-warp {
   border-bottom: 1px solid #e9e9e9;
   .block {
@@ -428,6 +415,8 @@ popup-type
   }
 }
 
+
+// data
 .data {
   min-height: 100%;
   background-color: #f5f5f5;
@@ -620,6 +609,8 @@ popup-type
   }
 }
 
+
+// detail
 .detail {
   height: 100%;
   display: flex;
@@ -712,6 +703,123 @@ popup-type
     }
     span:nth-of-type(1) {
       color: red;
+    }
+  }
+}
+
+// account
+.account {
+  padding: 0 12px;
+  .form {
+    :global {
+      .za-cell:after {
+        left: unset;
+        border-top: unset;
+        border-bottom: 1PX solid #e9e9e9;
+      }
+    }
+  }
+  .btn {
+    margin-top: 50px;
+  }
+}
+
+// about
+.about {
+  padding: 0 20px;
+  article {
+    line-height: 20px;
+  }
+}
+
+// user
+.user {
+  min-height: 100%;
+  background-color: #f5f5f5;
+  .head {
+    height: 160px;
+    // background-image: linear-gradient(189deg, #0033d6, #215ae4, #277ff2, #18a4ff);
+    background: url('//s.yezgea02.com/1615971681107/%E4%BD%8D%E5%9B%BE%402x.png') no-repeat;
+    background-size: cover;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 24px;
+    .info {
+      display: flex;
+      flex-direction: column;
+      > span {
+        color: #fff;
+      }
+      span:nth-of-type(1) {
+        font-size: 16px;
+        font-weight: bold;
+        margin-bottom: 6px;
+        align-self: baseline;
+        background-color: rgba(89, 127, 231, 1);
+        padding: 2px 10px;
+        border-radius: 20px;
+      }
+      span:nth-of-type(2) {
+        font-size: 14px;
+      }
+    }
+  }
+  .content {
+    width: 90%;
+    position: absolute;
+    top: 120px;
+    left: 50%;
+    transform: translateX(-50%);
+    box-shadow: 3px 2px 20px 10px rgba(0, 0, 0, .1);
+    border-radius: 10px;
+    overflow: hidden;
+  }
+  .logout {
+    width: 90%;
+    position: absolute;
+    bottom: 70px;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+}
+
+// userinfo
+
+.userinfo {
+  padding: 0 10px;
+  h1 {
+    border-bottom: 1px solid #e9e9e9;
+    padding-bottom: 10px;
+  }
+  .item {
+    border-bottom: 1px solid #e9e9e9;
+    margin-bottom: 20px;
+    .title {
+      font-size: 16px;
+      padding: 10px;
+    }
+    .avatar {
+      display: flex;
+      margin-bottom: 20px;
+      .avatar-url {
+        width: 80px;
+        height: 80px;
+        flex-shrink: 0;
+        border-radius: 50%;
+      }
+      .desc {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        margin-left: 10px;
+        .upload {
+          width: 100px;
+        }
+      }
+    }
+    .signature {
+      padding: 0 10px;
     }
   }
 }

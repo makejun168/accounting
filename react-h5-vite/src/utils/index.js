@@ -1,8 +1,19 @@
 import axios from './axios'
+import { baseUrl } from 'config'
+const MODE = import.meta.env.MODE // 环境变量
 
 export const get = axios.get
 
 export const post = axios.post
+
+export const imgUrlTrans = (url) => {
+    if (url && url.startsWith('http')) {
+        return url
+    } else {
+        url = `${MODE == 'development' ? 'http://localhost:7002' : baseUrl}${url}`
+        return url
+    }
+}
 
 // utils/index.js
 export const REFRESH_STATE = {
