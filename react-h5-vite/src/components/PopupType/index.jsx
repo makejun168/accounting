@@ -15,14 +15,15 @@ const PopupType = forwardRef(({ onSelect }, ref) => {
     const [income, setIncome] = useState([]); // 收入类型标签
 
     const getData = async () => {
-        const { data: { list } } = await get('/api/type/list')
-        setExpense(list.filter(i => i.type === 1))
-        setIncome(list.filter(i => i.type === 2))
+        const { data } = await get('/api/type/list');
+        // if ()
+        setExpense(data.filter(i => i.type === 1))
+        setIncome(data.filter(i => i.type === 2))
     }
 
     useEffect(() => {
         // 请求标签接口放在弹窗内，这个弹窗可能会被复用，所以请求如果放在外面，会造成代码冗余。
-        // getData()
+        getData()
     }, [])
 
     if (ref) {
@@ -70,7 +71,7 @@ const PopupType = forwardRef(({ onSelect }, ref) => {
                     <div className={s.title}>收入</div>
                     <div className={s.incomeWrap}>
                         {
-                            income ? income.map((item, index) => <p key={index} onClick={() => choseType(item)} className={cx({[s.active]: active == item.id})} >{ item.name }</p>) : null
+                            income.length > 0 ? income.map((item, index) => <p key={index} onClick={() => choseType(item)} className={cx({[s.active]: active == item.id})} >{ item.name }</p>) : null
                         }
                     </div>
                 </div>

@@ -32,6 +32,7 @@ const Login = () => {
                 // 将 token 写入 localStorage
                 localStorage.setItem('token', data.token);
                 Toast.show("登录成功");
+                location.href = '/'
             } else {
                 const { data } = await post('/api/user/register', {
                     username,

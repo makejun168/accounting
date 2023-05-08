@@ -14,6 +14,17 @@ class TypeService extends Service {
             return null;
         }
     }
+
+    async list() {
+        const { ctx, app } = this;
+        try {
+            const result = await app.mysql.select('type');
+            return result;
+        } catch (error) {
+            console.log(error);
+            return null;
+        }
+    }
 }
 
 module.exports = TypeService;

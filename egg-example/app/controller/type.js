@@ -43,6 +43,33 @@ class TypeController extends Controller {
             }
         }
     }
+
+    async list() {
+        const { ctx, app } = this;
+
+        try {
+            let user_id
+            const token = ctx.request.header.authorization;
+            // 拿到 token 获取用户信息
+            const decode = await app.jwt.verify(token, app.config.jwt.secret);
+            if (!decode) return
+            user_id = decode.id;
+
+            const result = await ctx.service.type.list();
+            ctx.body = {
+                code: 200,
+                msg: '请求成功',
+                data: result
+            }
+        } catch (error) {
+            console.log('error', error)
+            ctx.body = {
+                code: 500,
+                msg: '系统错误',
+                data: null
+            }
+        }
+    }
 }
 
 module.exports = TypeController;
