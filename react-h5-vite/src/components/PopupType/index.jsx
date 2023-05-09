@@ -58,7 +58,7 @@ const PopupType = forwardRef(({ onSelect }, ref) => {
             <div className={s.popupType}>
                 <div className={s.header}>
                     请选择类型
-                    <Icon type="wrong" className={s.cross} onClick={() => setShow(false)} />
+                    <Icon type="wrong" theme={'primary'} className={s.cross} onClick={() => setShow(false)} />
                 </div>
                 <div className={s.content}>
                     <div onClick={() => choseType({ id: 'all' })} className={cx({ [s.all]: true, [s.active]: active == 'all' })}>全部类型</div>
